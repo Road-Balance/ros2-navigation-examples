@@ -1,0 +1,11 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/swimming/nav2_ws/install/dwb_msgs/lib/python3.6/site-packages",
+        "/home/swimming/nav2_ws/install/nav_2d_msgs/lib/python3.6/site-packages",
+        "/home/swimming/nav2_ws/install/nav2_msgs/lib/python3.6/site-packages",
+        "/home/swimming/nav2_ws/build/nav2_gazebo_spawner",
+        "/home/swimming/nav2_ws/install/nav2_gazebo_spawner/lib/python3.6/site-packages",
+        "/home/swimming/nav2_ws/install/nav2_common/lib/python3.6/site-packages",
+        "/opt/ros/eloquent/lib/python3.6/site-packages"
+    ]
+}
