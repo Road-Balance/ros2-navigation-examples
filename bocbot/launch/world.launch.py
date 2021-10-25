@@ -6,16 +6,21 @@ from launch import LaunchDescription
 from launch.actions import ExecuteProcess, DeclareLaunchArgument
 from launch_ros.actions import Node
 from launch.substitutions import LaunchConfiguration
+from launch_ros.substitutions import FindPackageShare
+
 
 # this is the function launch  system will look for
 
 def generate_launch_description():
     robot_name = 'bocbot'
-    world_file_name = 'bocbot_office.world'
 
     # full  path to urdf and world file
-    world = os.path.join(get_package_share_directory(robot_name), 'worlds', world_file_name)
-    urdf = os.path.join(get_package_share_directory(robot_name), 'urdf', 'bocbot.urdf')
+    pkg_share = FindPackageShare(package='bocbot').find('bocbot')
+    world = os.path.join(pkg_share, 'worlds', 'bocbot_office.world')
+    urdf = os.path.join(pkg_share, 'urdf', 'bocbot.urdf')
+
+    # world = os.path.join(get_package_share_directory(robot_name), 'worlds', world_file_name)
+    # urdf = os.path.join(get_package_share_directory(robot_name), 'urdf', 'bocbot.urdf')
     
     # read urdf contents because to spawn an entity in 
     # gazebo we need to provide entire urdf as string on  command line

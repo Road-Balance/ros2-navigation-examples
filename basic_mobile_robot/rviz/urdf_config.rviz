@@ -112,16 +112,11 @@ Visualization Manager:
       Tree:
         base_footprint:
           base_link:
-            drivewhl_l_link:
-              {}
-            drivewhl_r_link:
-              {}
-            front_caster:
-              {}
-            gps_link:
-              {}
-            imu_link:
-              {}
+            drivewhl_l_link: {}
+            drivewhl_r_link: {}
+            front_caster: {}
+            gps_link: {}
+            imu_link: {}
       Update Interval: 0
       Value: true
   Enabled: true
