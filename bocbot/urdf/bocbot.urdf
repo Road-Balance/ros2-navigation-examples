@@ -108,6 +108,7 @@
       </plugin>
     </sensor>
   </gazebo>
+  
   <link name="robot_footprint" />
   <joint name="robot_footprint_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0" />
