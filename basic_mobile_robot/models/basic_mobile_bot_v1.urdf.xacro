@@ -48,6 +48,8 @@
     </inertial>
   </xacro:macro>
 
+  <xacro:include filename="basic_mobile_bot_v1.gazebo" />
+
   <!-- ****************** ROBOT BASE FOOTPRINT ***************************  -->
   <!-- Define the center of the main robot chassis projected on the ground -->
   <link name="base_footprint" />

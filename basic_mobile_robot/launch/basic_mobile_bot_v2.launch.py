@@ -21,7 +21,8 @@ def generate_launch_description():
   
   default_model_path = os.path.join(pkg_share, 'models/basic_mobile_bot_v1.urdf')
   default_rviz_config_path = os.path.join(pkg_share, 'rviz/urdf_config.rviz')
-  world_path = os.path.join(pkg_share, 'worlds', 'basic_mobile_bot_world/smalltown.world')
+  world_path = os.path.join(pkg_share, 'worlds', 'basic_mobile_bot_world/smalltown_with_robot.world')
+  # world_path = os.path.join(pkg_share, 'worlds', 'bocbot_office_with_robot.world')
   
   robot_desc = open(default_model_path, 'r').read()
 
