@@ -67,21 +67,21 @@ def generate_launch_description():
   start_joint_state_publisher_cmd = Node(
     condition=UnlessCondition(gui),
     package='joint_state_publisher',
-    node_executable='joint_state_publisher',
+    executable='joint_state_publisher',
     node_name='joint_state_publisher')
 
   # A GUI to manipulate the joint state values
   start_joint_state_publisher_gui_node = Node(
     condition=IfCondition(gui),
     package='joint_state_publisher_gui',
-    node_executable='joint_state_publisher_gui',
+    executable='joint_state_publisher_gui',
     node_name='joint_state_publisher_gui')
 
   # Subscribe to the joint states of the robot, and publish the 3D pose of each link.
   start_robot_state_publisher_cmd = Node(
     condition=IfCondition(use_robot_state_pub),
     package='robot_state_publisher',
-    node_executable='robot_state_publisher',
+    executable='robot_state_publisher',
     node_name='robot_state_publisher',
     # parameters=[{'use_sim_time': use_sim_time}],
     parameters=[{'use_sim_time': use_sim_time, 
@@ -92,7 +92,7 @@ def generate_launch_description():
   start_rviz_cmd = Node(
     condition=IfCondition(use_rviz),
     package='rviz2',
-    node_executable='rviz2',
+    executable='rviz2',
     node_name='rviz2',
     output='screen',
     arguments=['-d', rviz_config_file])
