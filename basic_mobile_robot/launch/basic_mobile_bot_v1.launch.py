@@ -88,6 +88,13 @@ def generate_launch_description():
     'robot_description': robot_desc}],
     arguments=[default_model_path])
 
+  joint_state_broadcaster_spawner = Node(
+    package="controller_manager",
+    executable="spawner.py",
+    arguments=["joint_state_broadcaster"],
+    output="screen",
+  )
+
   # Launch RViz
   start_rviz_cmd = Node(
     condition=IfCondition(use_rviz),
@@ -112,6 +119,7 @@ def generate_launch_description():
   ld.add_action(start_joint_state_publisher_cmd)
   ld.add_action(start_joint_state_publisher_gui_node)
   ld.add_action(start_robot_state_publisher_cmd)
+  ld.add_action(joint_state_broadcaster_spawner)
   ld.add_action(start_rviz_cmd)
 
   return ld

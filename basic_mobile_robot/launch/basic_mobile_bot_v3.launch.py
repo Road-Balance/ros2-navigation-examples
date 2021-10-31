@@ -20,8 +20,8 @@ def generate_launch_description():
   default_launch_dir = os.path.join(pkg_share, 'launch')
   default_model_path = os.path.join(pkg_share, 'models/basic_mobile_bot_v1.urdf')
   robot_localization_file_path = os.path.join(pkg_share, 'config/ekf.yaml') 
-  default_rviz_config_path = os.path.join(pkg_share, 'rviz/urdf_config_v2.rviz')
-  world_path = os.path.join(pkg_share, 'worlds', 'basic_mobile_bot_world/smalltown_with_robot_2.world')
+  default_rviz_config_path = os.path.join(pkg_share, 'rviz/urdf_config_v3.rviz')
+  world_path = os.path.join(pkg_share, 'worlds', 'basic_mobile_bot_world/smalltown_with_robot.world')
   
   # Launch configuration variables specific to simulation
   headless = LaunchConfiguration('headless')
