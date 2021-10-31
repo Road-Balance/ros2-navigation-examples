@@ -57,7 +57,7 @@ endif()
 # )
 
 install(
-  DIRECTORY launch meshes models rviz worlds
+  DIRECTORY config launch maps meshes models params rviz worlds
   DESTINATION share/${PROJECT_NAME}
 )
 
