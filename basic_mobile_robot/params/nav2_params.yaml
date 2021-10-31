@@ -22,7 +22,8 @@ amcl:
     max_particles: 2000
     min_particles: 500
     odom_frame_id: "odom"
-    pf_err: 0.05turtlebot3_world
+    pf_err: 0.05
+    pf_z: 0.99
     recovery_alpha_fast: 0.0
     recovery_alpha_slow: 0.0
     resample_interval: 1

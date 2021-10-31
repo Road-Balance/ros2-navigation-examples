@@ -110,13 +110,7 @@
   <!-- Connect the wheels to the base_link at the appropriate location, and 
          define a continuous joint to allow the wheels to freely rotate about
          an axis -->
-  <joint name="drivewhl_l_joint" type="revolute">
-    <parent link="base_link"/>
-    <child link="drivewhl_l_link"/>
-    <origin rpy="0 0 0" xyz="-0.221 0.23 -0.05"/>
-    <limit effort="30" lower="-3.1415" upper="3.1415" velocity="5.0"/>
-    <axis xyz="0 1 0"/>
-  </joint>
+
   <link name="drivewhl_r_link">
     <visual>
       <origin rpy="1.5707963267949 0 0" xyz="0 0 0"/>
@@ -142,13 +136,7 @@
   <!-- Connect the wheels to the base_link at the appropriate location, and 
          define a continuous joint to allow the wheels to freely rotate about
          an axis -->
-  <joint name="drivewhl_r_joint" type="revolute">
-    <parent link="base_link"/>
-    <child link="drivewhl_r_link"/>
-    <origin rpy="0 0 0" xyz="-0.221 -0.23 -0.05"/>
-    <limit effort="30" lower="-3.1415" upper="3.1415" velocity="5.0"/>
-    <axis xyz="0 1 0"/>
-  </joint>
+
   <!-- *********************** CASTER WHEEL ******************************  -->
   <!-- We add a caster wheel. It will be modeled as sphere.
        We define the wheel’s geometry, material and the joint to connect it to 
@@ -185,6 +173,22 @@
   </joint>
   <!-- *********************** IMU SETUP *********************************  -->
   <!-- Each sensor must be attached to a link.                              -->
+  
+  <joint name="drivewhl_r_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="drivewhl_r_link"/>
+    <origin rpy="0 0 0" xyz="-0.221 -0.23 -0.05"/>
+    <limit effort="30" lower="-3.1415" upper="3.1415" velocity="5.0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+  <joint name="drivewhl_l_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="drivewhl_l_link"/>
+    <origin rpy="0 0 0" xyz="-0.221 0.23 -0.05"/>
+    <limit effort="30" lower="-3.1415" upper="3.1415" velocity="5.0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
   <joint name="imu_joint" type="fixed">
     <parent link="base_link"/>
     <child link="imu_link"/>

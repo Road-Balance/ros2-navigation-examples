@@ -4,6 +4,9 @@
 # https://automaticaddison.com
 
 import os
+
+from ament_index_python.packages import get_package_share_directory
+
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.conditions import IfCondition, UnlessCondition
@@ -23,7 +26,7 @@ def generate_launch_description():
   default_rviz_config_path = os.path.join(pkg_share, 'rviz/nav2_config.rviz')
   world_path = os.path.join(pkg_share, 'worlds', 'basic_mobile_bot_world/smalltown_with_lidar_robot.world')
   
-  nav2_dir = FindPackageShare(package='nav2_bringup').find('nav2_bringup') 
+  nav2_dir = get_package_share_directory('nav2_bringup')
   nav2_launch_dir = os.path.join(nav2_dir, 'launch')
   static_map_path = os.path.join(pkg_share, 'maps', 'smalltown_world.yaml')
   nav2_params_path = os.path.join(pkg_share, 'params', 'nav2_params.yaml')
