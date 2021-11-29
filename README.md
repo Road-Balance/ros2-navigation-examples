@@ -6,6 +6,7 @@
 sudo apt install ros-foxy-navigation2 ros-foxy-nav2-bringup -y
 sudo apt install ros-foxy-turtlebot3* -y
 sudo apt install python3-rosdep2 -y
+rosdep update
 
 sudo apt install ros-foxy-rviz-common \
                 ros-foxy-tf2-tools \
