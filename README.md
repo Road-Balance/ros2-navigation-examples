@@ -18,6 +18,7 @@ sudo apt install ros-foxy-tf2-tools -y
 sudo apt install ros-foxy-gazebo-ros-pkgs -y
 sudo apt-get install ros-foxy-rqt-robot-steering
 sudo apt install ros-foxy-robot-localization -y
+sudo apt-get install ros-foxy-ros2-control
 
 ```
 
