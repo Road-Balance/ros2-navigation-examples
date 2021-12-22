@@ -19,7 +19,7 @@ import os
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, ExecuteProcess, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, ExecuteProcess, IncludeLaunchDescription, TimerAction
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PythonExpression
@@ -29,6 +29,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
     # Get the launch directory
     bringup_dir = get_package_share_directory('nav2_bringup')
+    cartographer_slam_dir = get_package_share_directory('cartographer_slam')
     launch_dir = os.path.join(bringup_dir, 'launch')
 
     # Create the launch configuration variables
@@ -102,7 +103,7 @@ def generate_launch_description():
 
     declare_rviz_config_file_cmd = DeclareLaunchArgument(
         'rviz_config_file',
-        default_value=os.path.join(bringup_dir, 'rviz', 'nav2_default_view.rviz'),
+        default_value=os.path.join(cartographer_slam_dir, 'rviz', 'cartographer.rviz'),
         description='Full path to the RVIZ config file to use')
 
     declare_use_simulator_cmd = DeclareLaunchArgument(
@@ -202,7 +203,6 @@ def generate_launch_description():
 
     # Add the actions to launch all of the navigation nodes
     ld.add_action(start_robot_state_publisher_cmd)
-    # ld.add_action(rviz_cmd)
-    # ld.add_action(bringup_cmd)
+    ld.add_action(TimerAction(period=5.0, actions=[rviz_cmd]))
 
     return ld
