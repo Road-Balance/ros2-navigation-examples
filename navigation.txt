@@ -1,0 +1,8 @@
+SLAM example
+
+```
+ros2 launch cartographer_slam exercise_env.launch.py
+ros2 launch cartographer_slam cartographer.launch.py
+rviz2
+ros2 run nav2_map_server map_saver_cli -f turtlebot3_house
+```
