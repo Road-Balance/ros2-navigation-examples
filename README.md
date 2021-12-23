@@ -9,17 +9,22 @@ sudo apt install python3-rosdep2 -y
 rosdep update
 
 sudo apt install ros-foxy-rviz-common \
-                ros-foxy-tf2-tools \
                 ros-foxy-joint-state-publisher-gui \
-                ros-foxy-xacro \
+                ros-foxy-rqt-robot-steering \
+                ros-foxy-robot-localization \
+                ros-foxy-cartographer-ros \
                 ros-foxy-gazebo-ros-pkgs \
+                ros-foxy-ros2-control \
+                ros-foxy-tf2-tools \
+                ros-foxy-xacro \
                 ros-foxy-slam-toolbox -y
-sudo apt install ros-foxy-tf2-tools -y
-sudo apt install ros-foxy-gazebo-ros-pkgs -y
-sudo apt-get install ros-foxy-rqt-robot-steering
-sudo apt install ros-foxy-robot-localization -y
-sudo apt-get install ros-foxy-ros2-control
+```
 
+```
+cd ~/nav2_ws/src
+git clone https://github.com/ros-planning/navigation2.git --branch foxy-devel
+cd ~/nav2_ws
+rosdep install -y -r -q --from-paths src --ignore-src --rosdistro foxy
 ```
 
 # Usage

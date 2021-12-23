@@ -6,11 +6,17 @@ ros2 launch cartographer_slam cartographer.launch.py
 ros2 run turtlebot3_teleop teleop_keyboard
 
 ros2 run nav2_map_server map_saver_cli -f turtlebot3_house
-```
+
+ros2 launch cartographer_slam nav2_map_server_launch.py
 
 ```
-ros2 launch cartographer_slam nav2_map_server_launch.py
-ros2 service call /map_server/load_map nav2_msgs/srv/LoadMap "{map_url: /home/kimsooyoung/dev2_ws/src/ros2-navigation-examples/cartographer_slam/map/turtlebot3_house.yaml}"
+
+Localization Example
+```
+ros2 launch amcl_localization exercise_env.launch.py
+ros2 launch amcl_localization localization.launch.py
+ros2 run turtlebot3_teleop teleop_keyboard
+
 ```
 
 /home/kimsooyoung/dev2_ws/src/ros2-navigation-examples/cartographer_slam/map/turtlebot3_house.pgm
