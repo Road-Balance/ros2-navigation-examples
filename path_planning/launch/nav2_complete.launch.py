@@ -67,7 +67,7 @@ def generate_launch_description():
 
     declare_use_namespace_cmd = DeclareLaunchArgument(
         'use_namespace',
-        default_value='False',
+        default_value='false',
         description='Whether to apply a namespace to the navigation stack')
 
     declare_slam_cmd = DeclareLaunchArgument(
@@ -82,7 +82,7 @@ def generate_launch_description():
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
         'use_sim_time',
-        default_value='False',
+        default_value='true',
         description='Use simulation (Gazebo) clock if true')
 
     declare_params_file_cmd = DeclareLaunchArgument(
@@ -108,12 +108,12 @@ def generate_launch_description():
 
     declare_use_simulator_cmd = DeclareLaunchArgument(
         'use_simulator',
-        default_value='False',
+        default_value='True',
         description='Whether to start the simulator')
 
     declare_use_robot_state_pub_cmd = DeclareLaunchArgument(
         'use_robot_state_pub',
-        default_value='False',
+        default_value='True',
         description='Whether to start the robot state publisher')
 
     declare_use_rviz_cmd = DeclareLaunchArgument(
@@ -181,29 +181,29 @@ def generate_launch_description():
     ld = LaunchDescription()
 
     # Declare the launch options
-    # ld.add_action(declare_namespace_cmd)
-    # ld.add_action(declare_use_namespace_cmd)
-    # ld.add_action(declare_slam_cmd)
-    # ld.add_action(declare_map_yaml_cmd)
-    # ld.add_action(declare_use_sim_time_cmd)
-    # ld.add_action(declare_params_file_cmd)
-    # ld.add_action(declare_bt_xml_cmd)
-    # ld.add_action(declare_autostart_cmd)
+    ld.add_action(declare_namespace_cmd)
+    ld.add_action(declare_use_namespace_cmd)
+    ld.add_action(declare_slam_cmd)
+    ld.add_action(declare_map_yaml_cmd)
+    ld.add_action(declare_use_sim_time_cmd)
+    ld.add_action(declare_params_file_cmd)
+    ld.add_action(declare_bt_xml_cmd)
+    ld.add_action(declare_autostart_cmd)
 
-    # ld.add_action(declare_rviz_config_file_cmd)
+    ld.add_action(declare_rviz_config_file_cmd)
     ld.add_action(declare_use_simulator_cmd)
-    # ld.add_action(declare_use_robot_state_pub_cmd)
-    # ld.add_action(declare_use_rviz_cmd)
+    ld.add_action(declare_use_robot_state_pub_cmd)
+    ld.add_action(declare_use_rviz_cmd)
     ld.add_action(declare_simulator_cmd)
-    # ld.add_action(declare_world_cmd)
+    ld.add_action(declare_world_cmd)
 
     # Add any conditioned actions
     ld.add_action(start_gazebo_server_cmd)
     ld.add_action(start_gazebo_client_cmd)
 
     # Add the actions to launch all of the navigation nodes
-    # ld.add_action(start_robot_state_publisher_cmd)
-    # ld.add_action(rviz_cmd)
-    # ld.add_action(bringup_cmd)
+    ld.add_action(start_robot_state_publisher_cmd)
+    ld.add_action(rviz_cmd)
+    ld.add_action(bringup_cmd)
 
     return ld
