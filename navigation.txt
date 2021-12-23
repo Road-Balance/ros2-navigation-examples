@@ -26,5 +26,6 @@ Path Planning Example
 
 ```
 ros2 launch path_planning nav2_complete.launch.py
+ros2 launch path_planning example_nav2.launch.py
 
 ```
