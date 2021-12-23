@@ -6,7 +6,7 @@ from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
 from launch.event_handlers import OnProcessExit
-from launch.actions import ExecuteProcess, RegisterEventHandler
+from launch.actions import TimerAction, ExecuteProcess, RegisterEventHandler
 from launch_ros.actions import Node
 
 def generate_launch_description():
@@ -54,8 +54,12 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
+        TimerAction(
+            period=3.0,
+            actions=[map_service_call]
+        ),
+        # Be Care for order
         rviz2,
         lifecycle_manager,
         map_server,
-        map_service_call,
     ])
