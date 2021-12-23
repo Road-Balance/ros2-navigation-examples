@@ -32,6 +32,7 @@ setup(
         'console_scripts': [
             'initial_pose_pub = amcl_localization.initial_pose_pub:main',
             'clicked_point_sub = amcl_localization.clicked_point_sub:main',
+            'set_param = amcl_localization.set_param:main',
         ],
     },
 )
