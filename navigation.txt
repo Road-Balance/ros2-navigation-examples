@@ -22,3 +22,9 @@ ros2 run amcl_localization clicked_point_sub
 ros2 run amcl_localization set_param
 ```
 
+Path Planning Example
+
+```
+ros2 launch path_planning nav2_complete.launch.py
+
+```
