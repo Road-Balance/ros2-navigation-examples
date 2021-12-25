@@ -27,6 +27,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'nav_to_pose_action_client = path_planning.nav_to_pose_action_client:main',
+            'clicked_point_sub = path_planning.clicked_point_sub:main',
+            'goal_pose_pub = path_planning.goal_pose_pub:main',
         ],
     },
 )
