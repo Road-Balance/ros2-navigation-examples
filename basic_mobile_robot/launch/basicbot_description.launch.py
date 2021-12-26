@@ -42,7 +42,7 @@ def generate_launch_description():
         parameters=[robot_description]
     )
 
-    rviz_config_file = os.path.join(pkg_path, 'rviz', 'urdf_config.rviz')
+    rviz_config_file = os.path.join(pkg_path, 'rviz', 'description_config.rviz')
 
     # Launch RViz
     rviz = Node(
