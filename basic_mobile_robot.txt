@@ -1,0 +1,4 @@
+cbp basic_mobile_robot && rosfoxy
+
+ros2 launch basic_mobile_robot basicbot_description.launch.py
+

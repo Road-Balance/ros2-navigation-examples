@@ -8,7 +8,7 @@ Panels:
         - /Status1
         - /TF1
       Splitter Ratio: 0.5
-    Tree Height: 1082
+    Tree Height: 468
 Visualization Manager:
   Class: ""
   Displays:
@@ -112,11 +112,16 @@ Visualization Manager:
       Tree:
         base_footprint:
           base_link:
-            drivewhl_l_link: {}
-            drivewhl_r_link: {}
-            front_caster: {}
-            gps_link: {}
-            imu_link: {}
+            drivewhl_l_link:
+              {}
+            drivewhl_r_link:
+              {}
+            front_caster:
+              {}
+            gps_link:
+              {}
+            imu_link:
+              {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -156,7 +161,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 1.8705763816833496
+      Distance: 3.6390182971954346
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -179,10 +184,10 @@ Visualization Manager:
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1486
+  Height: 751
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000001f700000532fc0200000001fb000000100044006900730070006c006100790073010000006e000005320000018200ffffff0000051e0000053200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
-  Width: 1825
-  X: 871
-  Y: 349
+  QMainWindow State: 000000ff00000000fd0000000100000000000001f700000299fc0200000001fb000000100044006900730070006c006100790073010000003b00000299000000c700ffffff000002e80000029900000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Width: 1253
+  X: 242
+  Y: 113
