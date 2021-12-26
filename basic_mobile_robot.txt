@@ -1,4 +1,58 @@
-cbp basic_mobile_robot && rosfoxy
+#1 Description
 
+cbp basic_mobile_robot && rosfoxy
 ros2 launch basic_mobile_robot basicbot_description.launch.py
+
+gedit ~/.gazebo/gui.ini
+:/home/kimsooyoung/dev2_ws/src/ros2-navigation-examples/basic_mobile_robot/models
+
+gazebo 켜서 확인
+ros2 run rqt_robot_steering rqt_robot_steering
+
+이때의 topic list
+```
+$ ros2 topic list
+/clock
+/cmd_vel
+/gps/fix
+/imu/data
+/joint_states
+/parameter_events
+/rosout
+/scan
+/wheel/odometry
+
+/clock
+/cmd_vel
+/gps/fix
+/imu/data
+/joint_states
+/parameter_events
+/rosout
+/scan
+/wheel/odometry
+```
+
+#2 
+
+Gazebo + 센서 없는 로봇 상태 (rviz는 뺐다.)
+```
+ros2 launch basic_mobile_robot basicbot_with_gazebo.launch.py
+```
+
+TF_OLD_DATA Warning => robot_state_publisher에 sim time False로 하기
+```
+param = {'use_sim_time': False, 'robot_description': doc.toxml()}
+
+robot_state_publisher = Node(
+    package='robot_state_publisher',
+    executable='robot_state_publisher',
+    output='screen',
+    parameters=[param]
+)
+```
+
+#3 Sensor Fusion 
+
+
 
