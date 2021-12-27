@@ -15,7 +15,7 @@ import xacro
 def generate_launch_description():
 
     pkg_path = os.path.join(get_package_share_directory('basic_mobile_robot'))
-    world_path = os.path.join(pkg_path, 'worlds', 'basic_mobile_bot_world', 'smalltown.world')
+    world_path = os.path.join(pkg_path, 'worlds', 'basic_mobile_bot_world', 'smalltown_with_robot.world')
     pkg_gazebo_ros = FindPackageShare(package='gazebo_ros').find('gazebo_ros')   
 
     # Start Gazebo server
@@ -78,15 +78,9 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        RegisterEventHandler(
-            event_handler=OnProcessExit(
-                target_action=spawn_entity,
-                on_exit=[rqt_robot_steering],
-            )
-        ),
         start_gazebo_server_cmd,
         start_gazebo_client_cmd,
         robot_state_publisher,
         joint_state_publisher,
-        spawn_entity,
+        rqt_robot_steering,
     ])
