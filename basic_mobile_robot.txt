@@ -40,6 +40,9 @@ Gazebo + 센서 없는 로봇 상태 (rviz는 뺐다.)
 ros2 launch basic_mobile_robot basicbot_with_gazebo.launch.py
 ```
 
+Gazebo + robot까지 포함된 world를 사용해야 로봇이 잘 굴러감.
+Spawn 시키면 가다가 자꾸 멈추는 상황이 벌어졌다.
+
 TF_OLD_DATA Warning => robot_state_publisher에 sim time False로 하기
 ```
 param = {'use_sim_time': False, 'robot_description': doc.toxml()}
@@ -54,5 +57,8 @@ robot_state_publisher = Node(
 
 #3 Sensor Fusion 
 
+basic_mobile_bot_v2부터 라이다가 추가되었다.
 
-
+```
+ros2 launch basic_mobile_robot basicbot_sensor_fusion.launch.py
+```
