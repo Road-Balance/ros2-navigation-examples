@@ -15,7 +15,7 @@ import xacro
 def generate_launch_description():
 
     pkg_path = os.path.join(get_package_share_directory('basic_mobile_robot'))
-    world_path = os.path.join(pkg_path, 'worlds', 'basic_mobile_bot_world', 'smalltown_with_robot.world')
+    world_path = os.path.join(pkg_path, 'worlds', 'basic_mobile_bot_world', 'smalltown_with_lidar_robot.world')
     pkg_gazebo_ros = FindPackageShare(package='gazebo_ros').find('gazebo_ros')   
 
     # Start Gazebo server
@@ -30,7 +30,7 @@ def generate_launch_description():
     )
 
     # Robot State Publisher
-    urdf_file = os.path.join(pkg_path, 'models', 'basic_mobile_bot_v1.urdf')
+    urdf_file = os.path.join(pkg_path, 'models', 'basic_mobile_bot_v2.urdf')
     doc = xacro.parse(open(urdf_file))
     xacro.process_doc(doc)
     robot_description = {'robot_description': doc.toxml()}

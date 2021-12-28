@@ -35,7 +35,8 @@ $ ros2 topic list
 
 #2 
 
-Gazebo + 센서 없는 로봇 상태 (rviz는 뺐다.)
+Gazebo + 센서 까지 있는 로봇 상태 (rviz는 뺐다.)
+SLAM 등 예시에서 사용할 수 있게 함
 ```
 ros2 launch basic_mobile_robot basicbot_with_gazebo.launch.py
 ```
@@ -62,3 +63,20 @@ basic_mobile_bot_v2부터 라이다가 추가되었다.
 ```
 ros2 launch basic_mobile_robot basicbot_sensor_fusion.launch.py
 ```
+
+# SLAM 
+
+cartographer + wheel odom
+
+```
+ros2 launch basic_mobile_robot basicbot_with_gazebo.launch.py
+ros2 launch basic_mobile_robot basicbot_cartographer.launch.py
+```
+
+cartographer + sensor fusion odom
+
+```
+ros2 launch basic_mobile_robot basicbot_sensor_fusion.launch.py
+ros2 launch basic_mobile_robot basicbot_cartographer.launch.py
+```
+

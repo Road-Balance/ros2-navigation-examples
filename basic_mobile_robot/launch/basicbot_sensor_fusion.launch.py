@@ -97,8 +97,8 @@ def generate_launch_description():
         joint_state_publisher,
         robot_localization_cmd,
         rqt_robot_steering,
-        TimerAction(
-            period=3.0,
-            actions=[rviz]
-        ),
+        # TimerAction(
+        #     period=3.0,
+        #     actions=[rviz]
+        # ),
     ])

@@ -203,6 +203,6 @@ def generate_launch_description():
 
     # Add the actions to launch all of the navigation nodes
     ld.add_action(start_robot_state_publisher_cmd)
-    # ld.add_action(TimerAction(period=5.0, actions=[rviz_cmd]))
+    ld.add_action(TimerAction(period=5.0, actions=[rviz_cmd]))
 
     return ld
