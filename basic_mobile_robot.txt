@@ -6,6 +6,9 @@ ros2 launch basic_mobile_robot basicbot_description.launch.py
 gedit ~/.gazebo/gui.ini
 :/home/kimsooyoung/dev2_ws/src/ros2-navigation-examples/basic_mobile_robot/models
 
+=> basicbot_with_gazebo.launch.py안에 자동 설정하도록 바꿔둠
+=> but, 이렇게 하면 모든 launch를 수정해야 한다. 
+
 gazebo 켜서 확인
 ros2 run rqt_robot_steering rqt_robot_steering
 

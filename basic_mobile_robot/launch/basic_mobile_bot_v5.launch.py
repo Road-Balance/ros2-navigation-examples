@@ -15,6 +15,8 @@ from launch.substitutions import Command, LaunchConfiguration, PythonExpression
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
+from osrf_pycommon.terminal_color import ansi
+
 def generate_launch_description():
 
   # Set the path to different files and folders.
@@ -49,6 +51,15 @@ def generate_launch_description():
   use_sim_time = LaunchConfiguration('use_sim_time')
   use_simulator = LaunchConfiguration('use_simulator')
   world = LaunchConfiguration('world')
+
+  gazebo_model_path = os.path.join(pkg_share, 'models')
+  if 'GAZEBO_MODEL_PATH' in os.environ:
+      os.environ['GAZEBO_MODEL_PATH'] += ":" + gazebo_model_path
+  else :
+      os.environ['GAZEBO_MODEL_PATH'] = gazebo_model_path
+
+  print(ansi("yellow"), "If it's your 1st time to download Gazebo model on your computer, it may take few minutes to finish.", ansi("reset"))
+
   
   # Map fully qualified names to relative ones so the node's namespace can be prepended.
   # In case of the transforms (tf), currently, there doesn't seem to be a better alternative
