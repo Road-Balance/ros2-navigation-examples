@@ -51,6 +51,6 @@ def generate_launch_description():
                 ]"""}
             ]
         ),
-        odom_static_transform_publisher,
+        # odom_static_transform_publisher,
         map_static_transform_publisher,
     ])
