@@ -65,6 +65,7 @@ basic_mobile_bot_v2부터 라이다가 추가되었다.
 
 ```
 ros2 launch basic_mobile_robot basicbot_sensor_fusion.launch.py
+ros2 launch basic_mobile_robot basicbot_gps_sensor_fusion.launch.py
 ```
 
 # SLAM 
@@ -74,6 +75,7 @@ cartographer + wheel odom
 ```
 ros2 launch basic_mobile_robot basicbot_with_gazebo.launch.py
 ros2 launch basic_mobile_robot basicbot_cartographer.launch.py
+rviz2
 ```
 
 cartographer + sensor fusion odom
@@ -93,3 +95,4 @@ ros2 launch basic_mobile_robot basicbot_localization.launch.py
 
 ros2 service call /reinitialize_global_localization std_srvs/srv/Empty
 ```
+
