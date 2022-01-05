@@ -96,3 +96,9 @@ ros2 launch basic_mobile_robot basicbot_localization.launch.py
 ros2 service call /reinitialize_global_localization std_srvs/srv/Empty
 ```
 
+# Mapviz
+
+```
+ros2 launch basic_mobile_robot basicbot_gps_sensor_fusion.launch.py
+ros2 launch basic_mobile_robot mapviz.launch.py
+```
