@@ -35,11 +35,20 @@ def generate_launch_description():
         name='joint_state_publisher_gui'
     )
 
+    # Num 1 method
+    # robot_state_publisher = Node(
+    #     package='robot_state_publisher',
+    #     executable='robot_state_publisher',
+    #     output='screen',
+    #     parameters=[robot_description]
+    # )
+
+    # Num 2 method
     robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
         output='screen',
-        parameters=[robot_description]
+        arguments=[urdf_file],
     )
 
     rviz_config_file = os.path.join(pkg_path, 'rviz', 'description_config.rviz')
