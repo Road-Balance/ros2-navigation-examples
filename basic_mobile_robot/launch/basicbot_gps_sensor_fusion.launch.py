@@ -55,6 +55,9 @@ def generate_launch_description():
         ]
     )
 
+    # navsat_transform_node
+    # http://docs.ros.org/en/melodic/api/robot_localization/html/navsat_transform_node.html
+
     navsat_transform_node = Node(
         package='robot_localization',
         executable='navsat_transform_node',
