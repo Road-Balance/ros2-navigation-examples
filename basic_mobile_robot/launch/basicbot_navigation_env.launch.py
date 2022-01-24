@@ -175,11 +175,11 @@ def generate_launch_description():
     ld.add_action(declare_use_sim_time_cmd)
 
     # Add any actions
-    # ld.add_action(start_gazebo_server_cmd)
-    # ld.add_action(start_gazebo_client_cmd)
-    # ld.add_action(robot_state_publisher)
-    # ld.add_action(robot_localization)
-    ld.add_action(nav2_cmd)
-    ld.add_action(rviz2)
+    ld.add_action(start_gazebo_server_cmd)
+    ld.add_action(start_gazebo_client_cmd)
+    ld.add_action(robot_state_publisher)
+    ld.add_action(robot_localization)
+    # ld.add_action(nav2_cmd)
+    # ld.add_action(rviz2)
 
     return ld
