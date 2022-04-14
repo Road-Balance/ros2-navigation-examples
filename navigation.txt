@@ -30,3 +30,5 @@ ros2 launch path_planning nav2_complete.launch.py
 ros2 launch path_planning example_nav2.launch.py
 
 ```
+
+Small town은 기다리면 무조건 됨

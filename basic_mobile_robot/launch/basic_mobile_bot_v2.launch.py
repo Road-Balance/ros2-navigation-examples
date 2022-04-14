@@ -12,7 +12,18 @@ from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
+from ament_index_python.packages import get_package_share_directory
+
+from osrf_pycommon.terminal_color import ansi
+
 def generate_launch_description():
+
+  gazebo_model_path = os.path.join(get_package_share_directory('basic_mobile_robot'), 'models')
+  if 'GAZEBO_MODEL_PATH' in os.environ:
+      os.environ['GAZEBO_MODEL_PATH'] += ":" + gazebo_model_path
+  else :
+      os.environ['GAZEBO_MODEL_PATH'] = gazebo_model_path
+  print(ansi("yellow"), "If it's your 1st time to download Gazebo model on your computer, it may take few minutes to finish.", ansi("reset"))
 
   # Set the path to different files and folders.
   pkg_gazebo_ros = FindPackageShare(package='gazebo_ros').find('gazebo_ros')   
@@ -21,7 +32,7 @@ def generate_launch_description():
   
   default_model_path = os.path.join(pkg_share, 'models/basic_mobile_bot_v1.urdf')
   default_rviz_config_path = os.path.join(pkg_share, 'rviz/urdf_config_v2.rviz')
-  world_path = os.path.join(pkg_share, 'worlds', 'basic_mobile_bot_world/smalltown_with_robot.world')
+  world_path = os.path.join(pkg_share, 'worlds', 'basic_mobile_bot_world/empty_world.world')
   # world_path = os.path.join(pkg_share, 'worlds', 'bocbot_office_with_robot.world')
   
   robot_desc = open(default_model_path, 'r').read()
@@ -88,13 +99,15 @@ def generate_launch_description():
   # Start Gazebo server
   start_gazebo_server_cmd = IncludeLaunchDescription(
     PythonLaunchDescriptionSource(os.path.join(pkg_gazebo_ros, 'launch', 'gzserver.launch.py')),
-    condition=IfCondition(use_simulator),
-    launch_arguments={'world': world}.items())
+    # condition=IfCondition(use_simulator),
+    # launch_arguments={'world': world}.items()
+  )
 
   # Start Gazebo client    
   start_gazebo_client_cmd = IncludeLaunchDescription(
     PythonLaunchDescriptionSource(os.path.join(pkg_gazebo_ros, 'launch', 'gzclient.launch.py')),
-    condition=IfCondition(PythonExpression([use_simulator, ' and not ', headless])))
+    # condition=IfCondition(PythonExpression([use_simulator, ' and not ', headless]))
+  )
 
   # A GUI to manipulate the joint state values
   start_joint_state_publisher_gui_node = Node(
@@ -138,8 +151,8 @@ def generate_launch_description():
   # Add any actions
   ld.add_action(start_gazebo_server_cmd)
   ld.add_action(start_gazebo_client_cmd)
-  ld.add_action(start_robot_state_publisher_cmd)
-  ld.add_action(start_joint_state_publisher_gui_node)
-  ld.add_action(start_rviz_cmd)
+  # ld.add_action(start_robot_state_publisher_cmd)
+  # ld.add_action(start_joint_state_publisher_gui_node)
+  # ld.add_action(start_rviz_cmd)
 
   return ld

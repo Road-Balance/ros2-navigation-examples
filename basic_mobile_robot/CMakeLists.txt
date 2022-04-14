@@ -57,8 +57,17 @@ endif()
 # )
 
 install(
-  DIRECTORY config launch maps meshes models params rviz worlds
-  DESTINATION share/${PROJECT_NAME}
+  DIRECTORY 
+    config 
+    launch 
+    maps 
+    meshes 
+    models 
+    params 
+    rviz 
+    worlds
+  DESTINATION 
+    share/${PROJECT_NAME}
 )
 
 ament_package()
